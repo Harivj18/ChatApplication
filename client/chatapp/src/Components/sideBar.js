@@ -12,11 +12,15 @@ const SideBar = () => {
   const contactUrl = `http://localhost:8000/chatApp/contacts/getContacts`;
 
   useEffect(() => {
+    
     const fetchContacts = async () => {
       try {
         const response = await axios.get(contactUrl, { withCredentials: true });
+          console.log('responsefetchContacts',response);
         if (response.data.status.toUpperCase() === 'SUCCESS' && response.data.contacts.length > 0) {
+          
           setContacts(response.data.contacts);
+          handleRowClick(response.data.contacts[0])
         }
       } catch (err) {
         console.error("Error while Fetching Contacts", err);
@@ -56,38 +60,40 @@ const SideBar = () => {
     <h2 className="text-2xl font-bold mb-6 text-gray-700">Chats</h2>
     <ul className="flex-grow overflow-y-auto h-96 space-y-3 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
       {myContacts.length > 0 ? (
-          myContacts.map((contact) => (
-            <li
-              key={contact.id}
-              className="flex items-center p-3 bg-white rounded-lg shadow-sm hover:bg-gray-100 transition cursor-pointer"
-              onClick={() => handleRowClick(contact)}
-            >
-              <img
-                src={contact.profilePicture || "default-profile.png"}
-                alt="Profile"
-                className="w-16 h-16 rounded-full object-cover border border-gray-200 cursor-pointer"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleProfileClick(contact);
-                }}
-              />
-              <div className="ml-4">
-                <span
-                  className="block text-lg font-semibold text-gray-800 cursor-pointer"
-                >
-                  {contact.contactName}
-                </span>
-                <span
-                  className={`text-sm ${contact.isActive ? "text-green-500" : "text-gray-500"}`}
-                >
-                  {contact.isActive ? "Active" : "Offline"}
-                </span>
-              </div>
-            </li>
-          ))
-        ) : (
-          <li className="text-center text-gray-500">No Contacts to Display</li>
-        )}
+        myContacts.map((contact) => (
+          <li
+            key={contact.id}  
+            className="flex items-center p-3 bg-white rounded-lg shadow-sm hover:bg-gray-100 transition cursor-pointer"
+            onClick={() => handleRowClick(contact)}
+          >
+            <img
+              src={contact.profilePicture || "default-profile.png"}
+              alt="Profile"
+              className="w-16 h-16 rounded-full object-cover border border-gray-200 cursor-pointer"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleProfileClick(contact);
+              }}
+            />
+            <div className="ml-4">
+              <span
+                className="block text-lg font-semibold text-gray-800 cursor-pointer"
+              >
+                {contact.contactName}
+              </span>
+              <span
+                className={`text-sm ${contact.isActive ? "text-green-500" : "text-gray-500"}`}
+              >
+                {contact.isActive ? "Active" : "Offline"}
+              </span>
+            </div>
+          </li>
+        ))
+      ) : (
+        <li className="text-center text-gray-500">
+          No Contacts to Display
+        </li>
+      )}
     </ul>
     <div className="absolute bottom-6 right-6">
       <button

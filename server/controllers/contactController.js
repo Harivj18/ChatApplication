@@ -60,21 +60,8 @@ const saveContact = async (req, res) => {
 
 const getContacts = async (req, res) => {
     try {
-        console.log('findcp');
         
         const contactList = await contacts.find();
-        console.log('contactList',contactList);
-//         if (contactList.length) {
-//             for (let contacts of contactList) {
-//                 if (contacts?.profilePicture && contacts['profilePicture'] !== null) {
-//                     // console.log('contactsbefre',contacts['profilePicture']);
-// console.log('hhhhhhhhhhhhhhhhhh',Buffer.isBuffer(contacts['profilePicture']));
-//                     contacts['profilePicture'] = contacts['profilePicture'].toString('base64');
-//                     // console.log('contactsafter',contacts['profilePicture']);
-
-//                 }
-//             }
-//         }
         return res.json({
             "status" : 'SUCCESS',
             "contacts": contactList

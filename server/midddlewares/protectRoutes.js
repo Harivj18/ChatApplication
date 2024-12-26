@@ -5,6 +5,8 @@ const protectRoutes = async(req, res, next) => {
     try {
         const token = req.cookies.jwt
         console.log('token',token);
+        console.log('req.',req);
+        console.log('req.cookies',req.cookies);
         
 
         if (!token) {
@@ -36,8 +38,8 @@ const protectRoutes = async(req, res, next) => {
 
 const authCheck = async (req, res) => {
     try {
-        const token = req.cookies.token;
-
+        const token = req.cookies.jwt;
+        
         if(!token) {
             return res.json({
                 "status": "Error",

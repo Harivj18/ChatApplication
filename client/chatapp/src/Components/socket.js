@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import './socket.css';
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ChatApp from "./chatApp";
 import axios from "axios";
+import { AuthContext } from "./AuthContext";
 
 
 const SocketConnection = () => {

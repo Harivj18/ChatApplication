@@ -44,7 +44,7 @@ const sentMessage = async (messageDetails) => {
         return Promise.resolve({'status': 'success', 'message': 'message sent'})
     } catch (error) {
         console.log('Error while sending message to the receiver',error);
-        return Promise.resolve({'status': 500, 'message': 'Unable to send messages'})
+        return Promise.resolve({'status': 'failed', 'message': 'Unable to send messages'})
     }
 }
 
@@ -58,8 +58,7 @@ const getMessages = async (req, res) => {
                 roomId: roomId,
                 chatType: chatType
             }]
-        })
-.populate('messageId');
+        }).populate('messageId');
         console.log('chatHistory', chatHistory);
         
 
@@ -71,7 +70,7 @@ const getMessages = async (req, res) => {
     
     } catch (error) {
         console.log('Error while getting message of the user',error);
-        return res.json({'status': 500, 'message': 'Unable to Load messages'})
+        return res.json({'status': 'failed', 'message': 'Unable to Load messages'})
     }
 }
 

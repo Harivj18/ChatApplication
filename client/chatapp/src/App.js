@@ -8,13 +8,13 @@ import ForgotPassword from './Components/forgot_password';
 import ResetPassword from './Components/reset_password';
 import Home from './pages/home';
 import ProtectedRoutes from './Components/protectedRoutes';
-import { AuthContext } from './Components/AuthContext';
+import { AuthProvider } from './Components/AuthContext';
 
 
 function App() {
   return (
     <div className="App">
-      {/* <AuthContext> */}
+      <AuthProvider>
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<Login></Login>}></Route>
@@ -22,14 +22,14 @@ function App() {
             <Route path='/signup' element = {<SignUp></SignUp>}></Route>
             <Route path='/forgot-password' element = {<ForgotPassword></ForgotPassword>}></Route>
             <Route path='/reset-password' element = {<ResetPassword></ResetPassword>}></Route>
-            {/* <Route element={<ProtectedRoutes></ProtectedRoutes>}> */}
+            <Route element={<ProtectedRoutes></ProtectedRoutes>}>
               <Route path='/home' element={<Home></Home>}></Route>
-              <Route path='/chatApp' element={<ChatApp></ChatApp>} exact></Route>
+              {/* <Route path='/chatApp' element={<ChatApp></ChatApp>} exact></Route> */}
               <Route path='/createJoinRoom' element={<SocketConnection></SocketConnection>} exact></Route>
-            {/* </Route> */}
+            </Route>
           </Routes>
         </BrowserRouter>
-      {/* </AuthContext> */}
+      </AuthProvider>
 
     </div>
   );
