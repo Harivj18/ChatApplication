@@ -155,7 +155,7 @@ const forgotPassword = async (req, res) => {
                             'from': 'djangot1798@gmail.com',
                             'to': `${emailId}`,
                             'subject': `Reset Password`,
-                            'text': `Kindly Use the Link for resetting password http://localhost:3000/reset-password`
+                            'text': `Kindly Use the Link for resetting password ${process.env.CLIENT_URL}/reset-password`
                         }
                         mailTransport.sendMail(recipientInfo, (Info,message)=> {
                             if(Info === null && message.hasOwnProperty('messageId')) {

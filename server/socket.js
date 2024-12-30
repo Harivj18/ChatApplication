@@ -4,7 +4,7 @@ const messages = require('./controllers/messageController')
 const socketConnection = (server) => {
     const io = socketio(server, {
         cors: {
-            origin: ["http://localhost:3000","http://localhost:3001"],
+            origin: [process.env.CLIENT_URL1,process.env.CLIENT_URL2,process.env.CLIENT_URL3,process.env.CLIENT_URL4,process.env.CLIENT_URL5],
             methods: ["GET", "POST"],
             credentials: true
         }
