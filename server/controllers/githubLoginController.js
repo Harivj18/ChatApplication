@@ -71,8 +71,8 @@ const githubLogin = (req, res, next) => {
 const githubLoginAuth = (req, res, next) => {
     try {
         passport.authenticate('github', {
-            successRedirect: `${process.env.CLIENT_URL}/home`,
-            failureRedirect: `${process.env.CLIENT_URL}/login`
+            successRedirect: `${process.env.CLIENT_URL1}/home`,
+            failureRedirect: `${process.env.CLIENT_URL1}/login`
         })(req, res, next)
     } catch (error) {
         console.log('Error while Authorizing github Account for Signing In', error);

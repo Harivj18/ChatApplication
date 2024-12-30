@@ -64,8 +64,8 @@ const googleLogin = (req, res, next) => {
 const googleLoginAuth = (req, res, next) => {
     try {
         passport.authenticate('google', {
-            successRedirect: `${process.env.CLIENT_URL}/home`,
-            failureRedirect: `${process.env.CLIENT_URL}/login`,
+            successRedirect: `${process.env.CLIENT_URL1}/home`,
+            failureRedirect: `${process.env.CLIENT_URL1}/login`,
         })(req, res, next);
     } catch (error) {
         console.log('Error while Signin Using Github Account',error);
