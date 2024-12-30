@@ -8,7 +8,7 @@ import Spinner from '../Components/Spinner';
 const Login = () => {
     const navigate = useNavigate()
     const {setIsAuthenticated} = useContext(AuthContext);
-    let apiUrl = `${REACT_APP_SERVER_URL}/chatApp/auth/login`;
+    let apiUrl = `${process.env.REACT_APP_SERVER_URL}/chatApp/auth/login`;
   const [loading, setLoading] = useState(false);
 
   const [loaderMsg, setLoaderMsg] = useState('Logging In ....')
@@ -21,10 +21,10 @@ const Login = () => {
       navigate('/signup')
     }
     const googleAccount = () => {
-      window.open(`${REACT_APP_SERVER_URL}/auth/google`,"_self")
+      window.open(`${process.env.REACT_APP_SERVER_URL}/auth/google`,"_self")
     }
     const githubAccount = () => {
-      window.open(`${REACT_APP_SERVER_URL}/github/auth`,"_self");
+      window.open(`${process.env.REACT_APP_SERVER_URL}/github/auth`,"_self");
     }
      async function loginData(e) {
         e.preventDefault();

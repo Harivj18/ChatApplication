@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 const LoginOld = () => {
     const navigate = useNavigate()
-    let apiUrl = `${REACT_APP_SERVER_URL}/chatApp/auth/login`
+    let apiUrl = `${process.env.REACT_APP_SERVER_URL}/chatApp/auth/login`
     const [userInfo, setUserInfo] = useState({
         "userName": "",
         "password": ""
@@ -14,10 +14,10 @@ const LoginOld = () => {
         navigate('/signup')
     }
     const googleAccount = () => {
-        window.open(`${REACT_APP_SERVER_URL}/auth/google`,"_self")
+        window.open(`${process.env.REACT_APP_SERVER_URL}/auth/google`,"_self")
     }
     const githubAccount = () => {
-        window.open(`${REACT_APP_SERVER_URL}/github/auth`,"_self");
+        window.open(`${process.env.REACT_APP_SERVER_URL}/github/auth`,"_self");
     }
     async function loginData(e) {
         e.preventDefault()
