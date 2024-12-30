@@ -5,7 +5,7 @@ import io from 'socket.io-client';
 import axios from "axios";
 import Picker from '@emoji-mart/react';
 
-const socket = io('http://localhost:8000', { withCredentials: true });
+const socket = io(REACT_APP_SERVER_URL, { withCredentials: true });
 
 const ChatApp = ({ userInfo }) => {
     const location = useLocation();
@@ -16,7 +16,7 @@ const ChatApp = ({ userInfo }) => {
     const pickerRef = useRef(null);
     const buttonRef = useRef(null);
     const [showPicker, setShowPicker] = useState(false);
-    const chatHistoryUrl = `http://localhost:8000/chatApp/message/getMessages`
+    const chatHistoryUrl = `${REACT_APP_SERVER_URL}/chatApp/message/getMessages`
     // const { userInfo } = location.state || { "userInfo": { "userName": "", "roomId": "", "chatType": "" } };
     // console.log('userInfo', userInfo);
 

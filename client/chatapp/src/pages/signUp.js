@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
     const navigate = useNavigate()
-    let apiUrl = `http://localhost:8000/chatApp/auth/signup`
+    let apiUrl = `${REACT_APP_SERVER_URL}/chatApp/auth/signup`
     const [userInfo, setUserInfo] = useState({
         "userName": "",
         "firstName": "",

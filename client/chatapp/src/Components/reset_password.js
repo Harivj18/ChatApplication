@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 const ResetPassword = () => {
     const navigate = useNavigate();
-    const apiUrl = `http://localhost:8000/chatApp/auth/reset-password`
+    const apiUrl = `${REACT_APP_SERVER_URL}/chatApp/auth/reset-password`
     const [resetData, setResetData] = useState({
         "userName": "",
         "emailId": "",
