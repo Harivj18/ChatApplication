@@ -7,7 +7,7 @@ export const AuthProvider = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [loading, setLoading] = useState(true); // New loading state
 
-    const authUrl = `${REACT_APP_SERVER_URL}/protectedRoutes/authCheck`;
+    const authUrl = `${process.env.REACT_APP_SERVER_URL}/protectedRoutes/authCheck`;
 
     useEffect(() => {
         axios

@@ -9,7 +9,7 @@ const SideBar = () => {
   const [myContacts, setContacts] = useState([]);
   const [currentContact, setCurrentContacts] = useState([]);
   const navigate = useNavigate();
-  const contactUrl = `${REACT_APP_SERVER_URL}/chatApp/contacts/getContacts`;
+  const contactUrl = `${process.env.REACT_APP_SERVER_URL}/chatApp/contacts/getContacts`;
 
   useEffect(() => {
     

@@ -11,7 +11,7 @@ const Homepage = () => {
   const location = useLocation();
   const { setIsAuthenticated } = useContext(AuthContext);
   const { userInfo } = location.state || { "userInfo": { "contactName": "", "userName": "", "userId": "", "roomId": "", "profilePicture": null ,"chatType": "" } };
-  const apiUrl = `${REACT_APP_SERVER_URL}/chatApp/auth/logout`;
+  const apiUrl = `${process.env.REACT_APP_SERVER_URL}/chatApp/auth/logout`;
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [loaderMsg, setLoaderMsg] = useState('Logging Out ....')

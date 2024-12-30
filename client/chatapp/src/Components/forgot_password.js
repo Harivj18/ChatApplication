@@ -3,7 +3,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 
 const ForgotPassword = () => {
-    let apiUrl = `${REACT_APP_SERVER_URL}/chatApp/auth/forgot-password`
+    let apiUrl = `${process.env.REACT_APP_SERVER_URL}/chatApp/auth/forgot-password`
     const [userInfo, setUserInfo] = useState({
         "userName": "",
         "emailId": "",

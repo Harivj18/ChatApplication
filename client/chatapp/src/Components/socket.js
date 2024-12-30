@@ -13,7 +13,7 @@ const SocketConnection = () => {
     const [image, setImage] = useState(null);
     const navigate = useNavigate();
     // axios.defaults.withCredentials = true;
-    const apiUrl = `${REACT_APP_SERVER_URL}/chatApp/contacts/saveContact`
+    const apiUrl = `${process.env.REACT_APP_SERVER_URL}/chatApp/contacts/saveContact`
 
     const joinChatRoom = async (e) => {
         // e.preventDefault();
